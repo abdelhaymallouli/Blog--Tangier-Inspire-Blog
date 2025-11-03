@@ -1,0 +1,27 @@
+@startuml
+left to right direction
+
+actor Visitor
+actor Contributor
+actor Admin
+
+' MVP Use Cases (no login shown)
+
+Visitor --> (Explore recent local initiatives)
+Contributor --> (Explore recent local initiatives)
+Admin --> (Explore recent local initiatives)
+
+Contributor --> (Publish an article with photos)
+
+Visitor --> (Comment & Like an article)
+Contributor --> (Comment & Like an article)
+
+Visitor --> (Search & Filter by category)
+Contributor --> (Search & Filter by category)
+Admin --> (Search & Filter by category)
+
+' Admin MVP actions
+Admin --> (Moderate content)
+Admin --> (Feature initiatives)
+
+@enduml

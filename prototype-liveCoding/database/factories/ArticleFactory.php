@@ -1,0 +1,28 @@
+<?php
+
+namespace Database\Factories;
+
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+/**
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Article>
+ */
+class ArticleFactory extends Factory
+{
+    /**
+     * Define the model's default state.
+     *
+     * @return array<string, mixed>
+     */
+public function definition(): array
+{
+    $published = fake()->boolean(80);
+
+    return [
+        'user_id' => \App\Models\User::factory(),
+        'title' => fake()->sentence(),
+        'body' => fake()->paragraphs(6, true),
+        'published_at' => $published ? fake()->dateTimeBetween('-1 year') : null,
+    ];
+}
+}

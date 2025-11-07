@@ -1,0 +1,35 @@
+@startuml
+title Tangier Inspire Blog - MVP Use Case Diagram
+
+actor Visitor
+actor Admin
+
+rectangle "Tangier Inspire Blog System" {
+
+  ' Visitor detailed use case
+  usecase "Explore Latest Articles" as UC_Articles
+  usecase "Explore Upcoming Events" as UC_Events
+  usecase "Explore Featured Artists" as UC_Artists
+  usecase "Browse Homepage Feed" as UC_Homepage
+
+  Visitor --> UC_Homepage
+  Visitor --> UC_Articles
+  Visitor --> UC_Events
+  Visitor --> UC_Artists
+
+  ' Admin publishing use cases
+  usecase "Publish Article" as UC_PublishArticle
+  usecase "Publish Event" as UC_PublishEvent
+  usecase "Publish Artist" as UC_PublishArtist
+
+  Admin --> UC_PublishArticle
+  Admin --> UC_PublishEvent
+  Admin --> UC_PublishArtist
+
+  ' Shared functionality for Admin
+  UC_PublishArticle ..> Admin : <<include>>
+  UC_PublishEvent ..> Admin : <<include>>
+  UC_PublishArtist ..> Admin : <<include>>
+}
+
+@enduml

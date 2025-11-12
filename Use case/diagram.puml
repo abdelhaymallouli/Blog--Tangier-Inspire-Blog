@@ -1,35 +1,45 @@
 @startuml
-title Tangier Inspire Blog - MVP Use Case Diagram
+title Use Case Diagram -- Blog: Tangier Inspire Blog
 
-actor Visitor
-actor Admin
+actor "Guest" as Guest
+actor "Registered User" as User
+actor "Administrator" as Admin
+actor "Editor" as Editor
 
-rectangle "Tangier Inspire Blog System" {
+Editor <|-- Admin
 
-  ' Visitor detailed use case
-  usecase "Explore Latest Articles" as UC_Articles
-  usecase "Explore Upcoming Events" as UC_Events
-  usecase "Explore Featured Artists" as UC_Artists
-  usecase "Browse Homepage Feed" as UC_Homepage
-
-  Visitor --> UC_Homepage
-  Visitor --> UC_Articles
-  Visitor --> UC_Events
-  Visitor --> UC_Artists
-
-  ' Admin publishing use cases
-  usecase "Publish Article" as UC_PublishArticle
-  usecase "Publish Event" as UC_PublishEvent
-  usecase "Publish Artist" as UC_PublishArtist
-
-  Admin --> UC_PublishArticle
-  Admin --> UC_PublishEvent
-  Admin --> UC_PublishArtist
-
-  ' Shared functionality for Admin
-  UC_PublishArticle ..> Admin : <<include>>
-  UC_PublishEvent ..> Admin : <<include>>
-  UC_PublishArtist ..> Admin : <<include>>
+rectangle "Tangier Inspire Blog" {
+  
+  (Log in) as UC_Login
+  (View list of articles) as UC1
+  (Read article in detail) as UC2
+  (Search for an article) as UC3
+  (Save an article) as UC4
+  (Like & comment & favorite an article) as UC_Like
+  (Share an article) as UC5
+  (Manage articles) as UC6
 }
+
+' Guest interactions (unlogged)
+Guest --> UC1
+Guest --> UC2
+Guest --> UC3
+Guest --> UC5
+
+' Registered User interactions (logged-in)
+User --> UC_Login
+User --> UC1
+User --> UC2
+User --> UC3
+User --> UC4
+User --> UC_Like
+User --> UC5
+
+' Admin interactions
+Admin --> UC_Login
+Admin --> UC6
+
+' Extend relationship
+UC1 <.. UC2 : <<extend>>
 
 @enduml

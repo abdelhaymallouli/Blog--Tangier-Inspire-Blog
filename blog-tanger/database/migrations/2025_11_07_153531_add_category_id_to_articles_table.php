@@ -11,16 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-Schema::create('events', function (Blueprint $table) {
-    $table->id();
-    $table->string('title');
-    $table->text('description')->nullable();
-    $table->string('city')->default('Tangier');
-    $table->date('date');
-    $table->string('image')->nullable();
-    $table->timestamps();
-});
-
+        Schema::table('articles', function (Blueprint $table) {
+            $table->foreignId('category_id')->nullable()->constrained('categories', 'category_id');
+        });
     }
 
     /**
@@ -28,6 +21,8 @@ Schema::create('events', function (Blueprint $table) {
      */
     public function down(): void
     {
-        Schema::dropIfExists('events');
+        Schema::table('articles', function (Blueprint $table) {
+            $table->dropConstrainedForeignId('category_id');
+        });
     }
 };

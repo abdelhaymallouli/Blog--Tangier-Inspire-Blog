@@ -11,16 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
- Schema::create('artists', function (Blueprint $table) {
-    $table->id();
-    $table->string('name');
-    $table->string('city')->default('Tangier');
-    $table->string('field')->nullable();
-    $table->text('bio')->nullable();
-    $table->string('photo')->nullable();
-    $table->timestamps();
-});
-
+        Schema::create('categories', function (Blueprint $table) {
+            $table->id('category_id');
+            $table->string('name')->unique();
+            $table->string('slug')->unique();
+            $table->text('description');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -28,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('artists');
+        Schema::dropIfExists('categories');
     }
 };

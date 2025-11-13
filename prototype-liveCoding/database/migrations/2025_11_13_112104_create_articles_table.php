@@ -21,7 +21,7 @@ return new class extends Migration {
           ->nullable()
           ->constrained('categories', 'category_id')
           ->nullOnDelete();
-    $table->enum('status', ['draft', 'published', 'archived'])->default('draft');
+    $table->enum('status', ['draft', 'published', 'archived'])->default('draft'); // <-- added
     $table->timestamp('published_at')->nullable();
     $table->boolean('is_moderated')->default(false);
     $table->timestamps();

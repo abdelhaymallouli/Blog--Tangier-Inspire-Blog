@@ -5,16 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Tag extends Model
+class Category extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = 'tag_id';
+    protected $primaryKey = 'category_id';
 
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'slug'];
 
     public function articles()
     {
-        return $this->belongsToMany(Article::class, 'article_tag', 'tag_id', 'article_id');
+        return $this->hasMany(Article::class, 'category_id', 'category_id');
     }
 }

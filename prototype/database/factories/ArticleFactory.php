@@ -2,26 +2,33 @@
 
 namespace Database\Factories;
 
+use App\Models\Article;
+use App\Models\Category;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Article>
- */
 class ArticleFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
-    public function definition(): array    
+    protected $model = Article::class;
+
+    public function definition(): array
     {
-            $published = fake()->boolean(80);
+        $title = fake()->sentence();
+
         return [
-            'user_id' => \App\Models\User::factory(),
-            'title' => fake()->sentence(),
-            'body' => fake()->paragraphs(fake()->numberBetween(3, 7), true),
-            'published_at' => $published ? fake()->dateTimeBetween('-1 years', 'now') : null,
+            'title'        => $title,
+            'slug'         => Str::slug($title) . '-' . fake()->unique()->numberBetween(1, 99999),
+            'content'      => fake()->paragraphs(6, true),
+            'image'        => fake()->optional()->imageUrl(640, 480, 'news'), // optional random image
+            'author_id'    => User::factory(),
+            'category_id'  => Category::factory(),
+            'status'       => fake()->randomElement(['draft', 'published', 'archived']), // new field
+            'published_at' => fake()->optional(0.9)->dateTimeBetween('-2 years', 'now'),
+            'is_moderated' => fake()->boolean(80), // 80% chance to be true
+            'views'        => fake()->numberBetween(0, 500),
+            'created_at'   => now(),
+            'updated_at'   => now(),
         ];
     }
 }

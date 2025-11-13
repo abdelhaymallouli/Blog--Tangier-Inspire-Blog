@@ -19,8 +19,7 @@ classDiagram
     %% --- Classes ---
     class User {
       +user_id : PK
-      +username : String
-      +name : String?
+      +name : String
       +email : String
       +password_hash : String?
       +role : Role
@@ -29,22 +28,22 @@ classDiagram
       +updated_at : DateTime
     }
 
-    class Article {
-      +article_id : PK
-      +title : String
-      +slug : String (unique)
-      +content : Text
-      +image : String?
-      +views : Integer = 0
-      +shares : Integer = 0
-      +status : ArticleStatus
-      +author_id : FK → User
-      +category_id : FK → Category
-      +published_at : DateTime?
-      +is_moderated : Boolean = false
-      +created_at : DateTime
-      +updated_at : DateTime
-    }
+class Article {
+  +article_id : PK
+  +title : String
+  +slug : String (unique)
+  +content : Text
+  +image : String?
+  +views : Integer = 0
+  +author_id : FK → User
+  +category_id : FK → Category
+  +status : String = 'draft'
+  +published_at : DateTime?
+  +is_moderated : Boolean = false
+  +created_at : DateTime
+  +updated_at : DateTime
+}
+
 
     class Comment {
       +comment_id : PK
@@ -81,7 +80,6 @@ classDiagram
       +category_id : PK
       +name : String (unique)
       +slug : String (unique)
-      +description : Text
     }
 
     %% --- Relationships ---

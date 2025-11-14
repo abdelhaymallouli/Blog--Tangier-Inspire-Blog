@@ -5,6 +5,8 @@ namespace App\Services;
 use App\Models\Article;
 use App\Models\Category;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use Illuminate\Database\Eloquent\Collection;
+
 
 class ArticleService
 {
@@ -17,7 +19,7 @@ class ArticleService
             ->paginate(5);
     }
 
-    public function getCategories(): \Illuminate\Database\Eloquent\Collection
+    public function getCategories() : Collection
     {
         return Category::orderBy('name')->get();
     }

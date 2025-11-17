@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Articles Management - Admin - Tangier Blog</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>body{font-family:'Inter',sans-serif;}h1,h2,h3{font-family:'Playfair Display',serif;}</style>
+</head>
+<body class="bg-gray-50">
+
+  <div class="min-h-screen flex flex-col lg:flex-row">
+    <!-- Admin Sidebar -->
+    <aside class="bg-blue-950 text-white lg:w-64 lg:flex-shrink-0">
+      <div class="p-6">
+        <h1 class="text-2xl font-bold tracking-wider">Tangier Admin</h1>
+      </div>
+      <nav class="mt-8">
+        <ul class="space-y-2 px-6">
+          <li><a href="/maquete/admin/index.html" class="flex items-center space-x-3 p-3 rounded-xl bg-blue-800 text-cyan-300"><span>📊</span><span>Dashboard</span></a></li>
+          <li><a href="/maquete/admin/articles.html" class="flex items-center space-x-3 p-3 rounded-xl hover:bg-blue-800"><span>✍️</span><span>Articles</span></a></li>
+          <li><a href="/maquete/admin/categories.html" class="flex items-center space-x-3 p-3 rounded-xl hover:bg-blue-800"><span>📂</span><span>Categories</span></a></li>
+          <li><a href="/maquete/admin/users.html" class="flex items-center space-x-3 p-3 rounded-xl hover:bg-blue-800"><span>👥</span><span>Users</span></a></li>
+          <li><a href="/maquete/admin/comments.html" class="flex items-center space-x-3 p-3 rounded-xl hover:bg-blue-800"><span>💬</span><span>Comments</span></a></li>
+        </ul>
+      </nav>
+      <div class="mt-auto p-6 border-t border-blue-800">
+        <div class="flex items-center space-x-3">
+          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=40&h=40&fit=crop&crop=face" alt="Admin" class="w-10 h-10 rounded-full">
+          <div>
+            <p class="font-semibold">Admin User</p>
+            <p class="text-sm text-blue-300">Administrator</p>
+          </div>
+        </div>
+        <a href="/" class="block mt-4 text-sm hover:text-red-400">Logout</a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-6 lg:p-12">
+      <div class="max-w-7xl mx-auto">
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-10">
+          <h1 class="text-5xl font-bold text-blue-950">Articles Management</h1>
+          <a href="/maquete/admin/add-article.html" class="mt-6 sm:mt-0 inline-block bg-cyan-500 text-white px-8 py-4 rounded-full font-semibold hover:bg-cyan-600 transition shadow-lg">
+            + New Article
+          </a>
+        </div>
+
+        <!-- Filters & Search -->
+        <div class="bg-white rounded-2xl shadow-xl p-6 mb-8">
+          <div class="flex flex-col lg:flex-row gap-6">
+            <input type="text" placeholder="Search articles..." class="flex-1 px-6 py-4 rounded-xl border border-gray-300 focus:border-cyan-500 focus:ring-4 focus:ring-cyan-100">
+            <select class="px-6 py-4 rounded-xl border border-gray-300 focus:border-cyan-500">
+              <option>All Status</option>
+              <option>Published</option>
+              <option>Pending</option>
+              <option>Draft</option>
+              <option>Archived</option>
+            </select>
+            <select class="px-6 py-4 rounded-xl border border-gray-300 focus:border-cyan-500">
+              <option>All Categories</option>
+              <option>Travel</option>
+              <option>Culture</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Articles Table -->
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+          <div class="overflow-x-auto">
+            <table class="w-full">
+              <thead class="bg-blue-950 text-white">
+                <tr>
+                  <th class="px-8 py-5 text-left">Title</th>
+                  <th class="px-8 py-5 text-left">Author</th>
+                  <th class="px-8 py-5 text-left">Category</th>
+                  <th class="px-8 py-5 text-left">Status</th>
+                  <th class="px-8 py-5 text-left">Views</th>
+                  <th class="px-8 py-5 text-center">Actions</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-gray-200">
+                <tr class="hover:bg-gray-50 transition">
+                  <td class="px-8 py-6">
+                    <a href="/maquete/article.html" class="font-semibold text-blue-900 hover:underline">The Secret Alleys of the Medina</a>
+                  </td>
+                  <td class="px-8 py-6">Amina El Idrissi</td>
+                  <td class="px-8 py-6">Travel</td>
+                  <td class="px-8 py-6"><span class="px-4 py-2 bg-orange-100 text-orange-800 rounded-full text-sm font-medium">Pending</span></td>
+                  <td class="px-8 py-6">2,412</td>
+                  <td class="px-8 py-6 text-center">
+                    <div class="flex justify-center space-x-3">
+                      <button class="text-green-600 hover:text-green-800 font-medium">Publish</button>
+                      <button class="text-blue-600 hover:text-blue-800">Edit</button>
+                      <button class="text-red-600 hover:text-red-800">Delete</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr class="hover:bg-gray-50 transition">
+                  <td class="px-8 py-6">
+                    <a href="/maquete/article.html" class="font-semibold text-blue-900 hover:underline">Sunset at Café Hafa</a>
+                  </td>
+                  <td class="px-8 py-6">Khalid Ben</td>
+                  <td class="px-8 py-6">Culture</td>
+                  <td class="px-8 py-6"><span class="px-4 py-2 bg-green-100 text-green-800 rounded-full text-sm font-medium">Published</span></td>
+                  <td class="px-8 py-6">3,891</td>
+                  <td class="px-8 py-6 text-center">
+                    <div class="flex justify-center space-x-3">
+                      <button class="text-gray-500">—</button>
+                      <button class="text-blue-600 hover:text-blue-800">Edit</button>
+                      <button class="text-red-600 hover:text-red-800">Delete</button>
+                    </div>
+                  </td>
+                </tr>
+                <!-- Repeat 10+ rows with dummy data -->
+                <tr class="hover:bg-gray-50 transition">
+                  <td class="px-8 py-6">
+                    <a href="/maquete/article.html" class="font-semibold text-blue-900 hover:underline">The Best Tajines in Tangier</a>
+                  </td>
+                  <td class="px-8 py-6">Fatima Zahra</td>
+                  <td class="px-8 py-6">Food</td>
+                  <td class="px-8 py-6"><span class="px-4 py-2 bg-green-100 text-green-800 rounded-full text-sm font-medium">Published</span></td>
+                  <td class="px-8 py-6">5,234</td>
+                  <td class="px-8 py-6 text-center">
+                    <div class="flex justify-center space-x-3">
+                      <button class="text-gray-500">—</button>
+                      <button class="text-blue-600 hover:text-blue-800">Edit</button>
+                      <button class="text-red-600 hover:text-red-800">Delete</button>
+                    </div>
+                  </td>
+                </tr>
+                <!-- Add more rows as needed -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Admin Footer -->
+  <footer class="bg-blue-950 text-white py-8 mt-20">
+    <div class="container mx-auto px-6 text-center text-blue-300">
+      © 2025 Tangier Blog Admin Panel. All rights reserved.
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up - Tangier Blog</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>body{font-family:'Inter',sans-serif;}h1,h2{font-family:'Playfair Display',serif;}</style>
+</head>
+<body class="bg-gray-50">
+
+  <!-- Guest Navbar -->
+  <header class="bg-blue-950 text-white shadow-xl sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-5">
+      <div class="flex justify-between items-center">
+        <a href="/" class="text-3xl font-bold tracking-wider">Tangier Blog</a>
+        <input type="checkbox" id="nav-toggle" class="hidden peer">
+        <label for="nav-toggle" class="md:hidden cursor-pointer text-3xl">Menu</label>
+        <nav class="hidden peer-checked:block md:block absolute md:relative top-full left-0 right-0 bg-blue-950 md:bg-transparent shadow-lg md:shadow-none">
+          <ul class="flex flex-col md:flex-row md:space-x-10 text-lg p-6 md:p-0">
+            <li><a href="/maquete/index.html" class="block py-3 md:py-0 hover:text-cyan-300">Home</a></li>
+            <li><a href="#" class="block py-3 md:py-0 hover:text-cyan-300">Categories</a></li>
+            <li><a href="/maquete/login.html" class="block py-3 md:py-0 hover:text-cyan-300">Login</a></li>
+            <li><a href="/maquete/signup.html" class="bg-cyan-400 text-blue-950 px-7 py-3 rounded-full font-medium hover:bg-cyan-300 transition">Sign Up</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Signup Form -->
+  <div class="min-h-screen flex items-center justify-center py-20 px-4">
+    <div class="bg-white rounded-3xl shadow-2xl p-12 w-full max-w-lg">
+      <div class="text-center mb-10">
+        <h1 class="text-5xl font-bold text-blue-950 mb-4">Join Tangier Blog</h1>
+        <p class="text-gray-600">Share your stories from the blue pearl of Morocco</p>
+      </div>
+
+      <form class="space-y-8">
+        <div>
+          <label class="block text-lg font-medium text-gray-700 mb-2">Full Name</label>
+          <input type="text" placeholder="Amina El Idrissi" class="w-full px-6 py-4 rounded-xl border border-gray-300 focus:border-cyan-500 focus:ring-4 focus:ring-cyan-100 text-lg">
+        </div>
+
+        <div>
+          <label class="block text-lg font-medium text-gray-700 mb-2">Email</label>
+          <input type="email" placeholder="amina@tangier.ma" class="w-full px-6 py-4 rounded-xl border border-gray-300 focus:border-cyan-500 focus:ring-4 focus:ring-cyan-100 text-lg">
+        </div>
+
+        <div>
+          <label class="block text-lg font-medium text-gray-700 mb-2">Password</label>
+          <input type="password" placeholder="••••••••" class="w-full px-6 py-4 rounded-xl border border-gray-300 focus:border-cyan-500 focus:ring-4 focus:ring-cyan-100 text-lg">
+        </div>
+
+        <div>
+          <label class="block text-lg font-medium text-gray-700 mb-2">Confirm Password</label>
+          <input type="password" placeholder="••••••••" class="w-full px-6 py-4 rounded-xl border border-gray-300 focus:border-cyan-500 focus:ring-4 focus:ring-cyan-100 text-lg">
+        </div>
+
+        <div class="flex items-center">
+          <input type="checkbox" class="w-5 h-5 text-cyan-600 rounded focus:ring-cyan-500">
+          <span class="ml-3 text-gray-700">I agree to the <a href="#" class="text-cyan-600 underline">Terms</a> and <a href="#" class="text-cyan-600 underline">Privacy Policy</a></span>
+        </div>
+
+        <button type="submit" class="w-full bg-blue-950 text-white py-5 rounded-xl text-xl font-semibold hover:bg-blue-800 transition shadow-lg">
+          Create Account
+        </button>
+      </form>
+
+      <p class="text-center mt-10 text-gray-600">
+        Already have an account? 
+        <a href="/maquete/login.html" class="text-cyan-600 font-bold hover:underline">Log in</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-blue-950 text-white py-16 mt-32">
+    <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-10">
+      <div><h3 class="text-3xl font-bold mb-4">Tangier Blog</h3><p class="text-blue-200">Inspired by the blue gates and white walls of Morocco's northern pearl.</p></div>
+      <div><h4 class="text-xl font-semibold mb-4">Explore</h4><ul class="space-y-2 text-blue-200"><li><a href="/maquete/index.html" class="hover:underline">Home</a></li><li><a href="#" class="hover:underline">About</a></li></ul></div>
+      <div><h4 class="text-xl font-semibold mb-4">Community</h4><ul class="space-y-2 text-blue-200"><li><a href="/maquete/signup.html" class="hover:underline">Become a Writer</a></li></ul></div>
+      <div class="text-3xl space-x-6"><a href="#" class="hover:text-cyan-300">f</a><a href="#" class="hover:text-cyan-300">t</a><a href="#" class="hover:text-cyan-300">i</a></div>
+    </div>
+    <p class="text-center text-blue-300 mt-12">© 2025 Tangier Blog. All rights reserved.</p>
+  </footer>
+</body>
+</html>

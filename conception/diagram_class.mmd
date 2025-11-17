@@ -1,0 +1,81 @@
+classDiagram
+
+    %% --- Classes ---
+    class User {
+      +user_id : PK
+      +name : String
+      +email : String
+      +password_hash : String?
+        +role : ENUM('visitor','writer','admin')
+      +email_verified_at : DateTime?
+      +created_at : DateTime
+      +updated_at : DateTime
+    +deleted_at : DateTime?
+
+    }
+
+    class Article {
+      +article_id : PK
+      +title : String
+      +slug : String (unique)
+      +content : Text
+      +image : String?
+      +views : Integer = 0
+      +author_id : FK → User
+      +category_id : FK → Category
+      +status : ENUM('pending','published','archived')
+      +is_moderated : Boolean = false
+      +published_at : DateTime?
+      +created_at : DateTime
+      +updated_at : DateTime
+      +deleted_at : DateTime?
+    }
+
+
+    class Comment {
+      +comment_id : PK
+      +article_id : FK → Article
+      +user_id : FK → User?
+      +content : Text
+      +created_at : DateTime
+      +updated_at : DateTime
+    }
+
+    class Favorite {
+      +user_id : FK → User
+      +article_id : FK → Article
+      +created_at : DateTime
+    }
+
+    class Tag {
+      +tag_id : PK
+      +name : String (unique)
+      +created_at : DateTime
+      +updated_at : DateTime
+    }
+
+    class ArticleTag {
+      +article_id : FK → Article
+      +tag_id : FK → Tag
+    }
+
+    %% --- Category table ---
+    class Category {
+      +category_id : PK
+      +name : String (unique)
+      +slug : String (unique)
+      +created_at : DateTime
+    +updated_at : DateTime
+    }
+
+    %% --- Relationships ---
+    User "1" --> "0..*" Article : writes >
+    User "0..1" --> "0..*" Comment : writes >
+    User "1" --> "0..*" Favorite : likes >
+
+    Article "1" --> "0..*" Comment : receives >
+    Article "1" --> "0..*" Favorite : is liked by >
+    Article "1" --> "0..*" ArticleTag : has >
+    Article "*" --> "1" Category : belongs to >
+
+    Tag "1" --> "0..*" ArticleTag : tags >

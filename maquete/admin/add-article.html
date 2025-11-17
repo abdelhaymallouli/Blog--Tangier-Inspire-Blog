@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add New Article - Admin - Tangier Blog</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>body{font-family:'Inter',sans-serif;}h1,h2,h3{font-family:'Playfair Display',serif;}</style>
+</head>
+<body class="bg-gray-50">
+
+  <div class="min-h-screen flex flex-col lg:flex-row">
+    <!-- Admin Sidebar -->
+    <aside class="bg-blue-950 text-white lg:w-64 lg:flex-shrink-0">
+      <div class="p-6">
+        <h1 class="text-2xl font-bold tracking-wider">Tangier Admin</h1>
+      </div>
+      <nav class="mt-8">
+        <ul class="space-y-2 px-6">
+          <li><a href="/maquete/admin/index.html" class="flex items-center space-x-3 p-3 rounded-xl bg-blue-800 text-cyan-300"><span>📊</span><span>Dashboard</span></a></li>
+          <li><a href="/maquete/admin/articles.html" class="flex items-center space-x-3 p-3 rounded-xl hover:bg-blue-800"><span>✍️</span><span>Articles</span></a></li>
+          <li><a href="/maquete/admin/categories.html" class="flex items-center space-x-3 p-3 rounded-xl hover:bg-blue-800"><span>📂</span><span>Categories</span></a></li>
+          <li><a href="/maquete/admin/users.html" class="flex items-center space-x-3 p-3 rounded-xl hover:bg-blue-800"><span>👥</span><span>Users</span></a></li>
+          <li><a href="/maquete/admin/comments.html" class="flex items-center space-x-3 p-3 rounded-xl hover:bg-blue-800"><span>💬</span><span>Comments</span></a></li>
+        </ul>
+      </nav>
+      <div class="mt-auto p-6 border-t border-blue-800">
+        <div class="flex items-center space-x-3">
+          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=40&h=40&fit=crop&crop=face" alt="Admin" class="w-10 h-10 rounded-full">
+          <div>
+            <p class="font-semibold">Admin User</p>
+            <p class="text-sm text-blue-300">Administrator</p>
+          </div>
+        </div>
+        <a href="/" class="block mt-4 text-sm hover:text-red-400">Logout</a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-6 lg:p-12">
+      <div class="max-w-5xl mx-auto">
+        <div class="flex items-center justify-between mb-10">
+          <h1 class="text-5xl font-bold text-blue-950">Add New Article</h1>
+          <a href="/maquete/admin/articles.html" class="text-cyan-600 hover:underline font-medium">Back to Articles</a>
+        </div>
+
+        <form class="bg-white rounded-3xl shadow-2xl p-10 space-y-10">
+          <!-- Title -->
+          <div>
+            <label class="block text-lg font-semibold text-gray-700 mb-3">Article Title</label>
+            <input type="text" placeholder="Enter a captivating title..." class="w-full px-6 py-5 rounded-xl border-2 border-gray-200 focus:border-cyan-500 focus:ring-4 focus:ring-cyan-100 text-xl font-medium">
+          </div>
+
+          <!-- Author & Category -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <label class="block text-lg font-semibold text-gray-700 mb-3">Author</label>
+              <select class="w-full px-6 py-5 rounded-xl border-2 border-gray-200 focus:border-cyan-500 text-lg">
+                <option>Amina El Idrissi</option>
+                <option>Khalid Benjelloun</option>
+                <option>Admin</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-lg font-semibold text-gray-700 mb-3">Category</label>
+              <select class="w-full px-6 py-5 rounded-xl border-2 border-gray-200 focus:border-cyan-500 text-lg">
+                <option>Travel & Adventure</option>
+                <option>Food & Culture</option>
+                <option>History & Heritage</option>
+                <option>Art & Photography</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Featured Image -->
+          <div>
+            <label class="block text-lg font-semibold text-gray-700 mb-3">Featured Image</label>
+            <div class="border-4 border-dashed border-gray-300 rounded-2xl p-12 text-center hover:border-cyan-500 transition cursor-pointer">
+              <svg class="mx-auto h-20 w-20 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 48 48">
+                <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.2-3.2a4 4 0 00-5.6 0L24 36"></path>
+              </svg>
+              <p class="mt-4 text-gray-600 text-lg">Drop image here or <span class="text-cyan-600 font-bold">click to upload</span></p>
+              <input type="file" accept="image/*" class="hidden">
+            </div>
+          </div>
+
+          <!-- Content -->
+          <div>
+            <label class="block text-lg font-semibold text-gray-700 mb-3">Article Content (Markdown supported)</label>
+            <textarea rows="18" placeholder="Write your masterpiece..." class="w-full px-6 py-5 rounded-xl border-2 border-gray-200 focus:border-cyan-500 focus:ring-4 focus:ring-cyan-100 font-mono text-base leading-relaxed"></textarea>
+          </div>
+
+          <!-- Tags & Status -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <label class="block text-lg font-semibold text-gray-700 mb-3">Tags (comma separated)</label>
+              <input type="text" placeholder="Tangier, Medina, Travel, Morocco" class="w-full px-6 py-5 rounded-xl border-2 border-gray-200 focus:border-cyan-500">
+            </div>
+            <div>
+              <label class="block text-lg font-semibold text-gray-700 mb-3">Status</label>
+              <select class="w-full px-6 py-5 rounded-xl border-2 border-gray-200 focus:border-cyan-500 text-lg">
+                <option>Published</option>
+                <option>Draft</option>
+                <option>Pending Review</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="flex justify-end gap-6 pt-8 border-t-2 border-gray-200">
+            <button type="button" class="px-10 py-4 border-2 border-gray-300 text-gray-700 rounded-full font-semibold hover:bg-gray-50 transition">
+              Save as Draft
+            </button>
+            <button type="submit" class="px-12 py-4 bg-blue-950 text-white rounded-full font-bold text-lg hover:bg-blue-800 transition shadow-xl">
+              Publish Article
+            </button>
+          </div>
+        </form>
+      </div>
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-blue-950 text-white py-8 mt-20">
+    <div class="container mx-auto px-6 text-center text-blue-300">
+      © 2025 Tangier Blog Admin Panel. All rights reserved.
+    </div>
+  </footer>
+</body>
+</html>

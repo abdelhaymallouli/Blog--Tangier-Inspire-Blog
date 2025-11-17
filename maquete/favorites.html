@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Favorites - Tangier Blog</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>body{font-family:'Inter',sans-serif;}h1,h2,h3{font-family:'Playfair Display',serif;}</style>
+</head>
+<body class="bg-gray-50">
+
+  <!-- Logged-in Navbar -->
+  <header class="bg-blue-950 text-white shadow-xl sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-5">
+      <div class="flex justify-between items-center">
+        <a href="/" class="text-3xl font-bold tracking-wider">Tangier Blog</a>
+        <input type="checkbox" id="nav-toggle" class="hidden peer">
+        <label for="nav-toggle" class="md:hidden cursor-pointer text-3xl">Menu</label>
+        <nav class="hidden peer-checked:block md:block absolute md:relative top-full left-0 right-0 bg-blue-950 md:bg-transparent shadow-lg md:shadow-none">
+          <ul class="flex flex-col md:flex-row md:space-x-8 text-lg p-6 md:p-0 items-center">
+            <li><a href="/maquete/index.html" class="block py-3 md:py-0 hover:text-cyan-300">Home</a></li>
+            <li><a href="/maquete/add-article.html" class="block py-3 md:py-0 hover:text-cyan-300">Write</a></li>
+            <li><a href="/maquete/favorites.html" class="block py-3 md:py-0 text-cyan-300 font-semibold">Favorites</a></li>
+            <li><a href="/maquete/user.html" class="flex items-center space-x-2 py-3 md:py-0">
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=40&h=40&fit=crop&crop=face" alt="User" class="w-10 h-10 rounded-full border-2 border-cyan-400">
+              <span>Amina</span>
+            </a></li>
+            <li><a href="/" class="block py-3 md:py-0 text-sm hover:text-red-400">Logout</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <div class="container mx-auto px-4 py-16">
+    <h1 class="text-5xl font-bold text-blue-950 mb-12">My Favorite Articles</h1>
+
+    <!-- Favorites Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+      <!-- Favorite Article Card -->
+      <article class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition group">
+        <div class="relative">
+          <img src="https://images.unsplash.com/photo-1599653597139-4f10ec74b3fa?q=80&w=600" alt="Café Hafa" class="w-full h-64 object-cover">
+          <button class="absolute top-4 right-4 bg-white/90 p-3 rounded-full shadow-lg hover:bg-red-500 hover:text-white transition">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+          </button>
+        </div>
+        <div class="p-6">
+          <span class="text-cyan-600 font-semibold text-sm uppercase tracking-wider">Culture</span>
+          <h3 class="text-xl font-bold mt-2 mb-3"><a href="/maquete/article.html" class="hover:text-blue-700">Sunset at Café Hafa</a></h3>
+          <p class="text-sm text-gray-600">by Khalid Ben • 987 views</p>
+        </div>
+      </article>
+
+      <!-- Repeat 11 more cards with different images/text -->
+      <!-- Example 2 -->
+      <article class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition group">
+        <div class="relative">
+          <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?q=80&w=600" alt="Medina" class="w-full h-64 object-cover">
+          <button class="absolute top-4 right-4 bg-white/90 p-3 rounded-full shadow-lg hover:bg-red-500 hover:text-white transition">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+          </button>
+        </div>
+        <div class="p-6">
+          <span class="text-cyan-600 font-semibold text-sm uppercase tracking-wider">Travel</span>
+          <h3 class="text-xl font-bold mt-2 mb-3"><a href="/maquete/article.html" class="hover:text-blue-700">The Secret Alleys of the Medina</a></h3>
+          <p class="text-sm text-gray-600">by Amina El Idrissi • 2.4k views</p>
+        </div>
+      </article>
+      <!-- ... continue pattern ... -->
+    </div>
+
+    <div class="mt-16 text-center">
+      <p class="text-gray-600 text-lg">You have <span class="font-bold text-blue-950">12</span> favorite articles</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-blue-950 text-white py-16 mt-32">
+    <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-10">
+      <div><h3 class="text-3xl font-bold mb-4">Tangier Blog</h3><p class="text-blue-200">Inspired by the blue gates and white walls of Morocco's northern pearl.</p></div>
+      <div><h4 class="text-xl font-semibold mb-4">Explore</h4><ul class="space-y-2 text-blue-200"><li><a href="/maquete/index.html" class="hover:underline">Home</a></li><li><a href="#" class="hover:underline">About</a></li></ul></div>
+      <div><h4 class="text-xl font-semibold mb-4">Community</h4><ul class="space-y-2 text-blue-200"><li><a href="/maquete/signup.html" class="hover:underline">Become a Writer</a></li></ul></div>
+      <div class="text-3xl space-x-6"><a href="#" class="hover:text-cyan-300">f</a><a href="#" class="hover:text-cyan-300">t</a><a href="#" class="hover:text-cyan-300">i</a></div>
+    </div>
+    <p class="text-center text-blue-300 mt-12">© 2025 Tangier Blog. All rights reserved.</p>
+  </footer>
+</body>
+</html>

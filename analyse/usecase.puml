@@ -1,0 +1,44 @@
+@startuml
+title Use Case Diagram -- Blog: Tangier Inspire Blog
+top to bottom direction
+skinparam shadowing false
+skinparam usecase {
+    BackgroundColor LightGreen
+    BorderColor DarkGreen
+}
+
+' === ACTEURS ===
+actor "Guest" as Guest
+actor "Registered User" as User
+actor "Administrator" as Admin
+actor "Editor" as Editor
+
+
+' === CAS D'UTILISATION ===
+usecase "Lire un article" as UC1
+usecase "Créer les articles" as UC2
+usecase "Gérer comptes utilisateurs" as UC3
+usecase "Rechercher un article" as UC4
+usecase "Consulter les articles" as UC7
+usecase "Filtrer par catégorie" as UC8
+usecase "Commenter" as UC9
+usecase "Valider les articles" as UC10
+
+' === RELATIONS ACTEURS ===
+Malak -- UC1
+Malak -- UC4
+Malak -- UC7
+Malak -- UC8
+Malak -- UC9
+
+Admin -- UC2
+
+Editor -- UC3
+Editor -- UC10
+
+' === RELATIONS ENTRE CAS ===
+UC1 -- UC8 : <<include>>
+UC4 -- UC8 : <<include>>
+UC2 .. UC10 : <<extend>>
+
+@enduml
